@@ -23,16 +23,28 @@
         android:paddingRight="20dp"
         android:text="开始体验"
         android:textColor="@drawable/btn_start_main_textcolor_selector"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:visibility="gone" />
 
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:id="@+id/ll_group_point"
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_marginBottom="40dp">
+
+        <LinearLayout
+            android:id="@+id/ll_group_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+
+        <ImageView
+            android:id="@+id/iv_red_point"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@drawable/point_red" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
