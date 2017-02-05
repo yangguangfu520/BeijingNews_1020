@@ -1,5 +1,6 @@
 package com.atguigu.beijingnews.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -14,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.atguigu.beijingnews.R;
+import com.atguigu.beijingnews.utils.CacheUtils;
+import com.atguigu.beijingnews.utils.DensityUtil;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -60,10 +63,10 @@ public class GuideActivity extends AppCompatActivity {
         //根据多少个页面添加多少个灰色的点
         for (int i = 0; i < ids.length; i++) {
             ImageView imageView = new ImageView(this);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(10, 10);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(DensityUtil.dip2px(this,10), DensityUtil.dip2px(this,10));
             if (i != 0) {
                 //设置灰色点的简介
-                params.leftMargin = 10;
+                params.leftMargin = DensityUtil.dip2px(this,10);
             }
             imageView.setLayoutParams(params);
             imageView.setImageResource(R.drawable.point_normal);
@@ -176,6 +179,13 @@ public class GuideActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_start_main)
     public void onClick() {
+        //1.保存参数，记录已经进入过引导页面，下次就不进
+        CacheUtils.putBoolean(this,"start_main",true);
 
+        //Toast.makeText(this, "进入主页面", Toast.LENGTH_SHORT).show();
+        //2.进入主页面
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

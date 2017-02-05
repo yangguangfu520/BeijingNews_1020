@@ -11,6 +11,8 @@ import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
 
 import com.atguigu.beijingnews.activity.GuideActivity;
+import com.atguigu.beijingnews.activity.MainActivity;
+import com.atguigu.beijingnews.utils.CacheUtils;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -19,7 +21,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_welcome);
         activity_main = (RelativeLayout) findViewById(R.id.activity_main);
         setAnimation();
 
@@ -72,9 +74,17 @@ public class WelcomeActivity extends AppCompatActivity {
        public void onAnimationEnd(Animation animation) {
 
 //            Toast.makeText(WelcomeActivity.this, "动画播放完成", Toast.LENGTH_SHORT).show();
+            boolean startMain = CacheUtils.getBoolean(WelcomeActivity.this,"start_main");
+            Intent intent = null;
+            if(startMain){
+                //进入主页面
+                 intent = new Intent(WelcomeActivity.this,MainActivity.class);
+            }else{
+                 intent = new Intent(WelcomeActivity.this,GuideActivity.class);
 
-            Intent intent = new Intent(WelcomeActivity.this,GuideActivity.class);
+            }
             startActivity(intent);
+
             finish();
 
         }
