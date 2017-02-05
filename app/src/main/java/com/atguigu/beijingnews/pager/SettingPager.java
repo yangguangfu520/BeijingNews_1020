@@ -21,7 +21,8 @@ public class SettingPager extends BasePager {
     @Override
     public void initData() {
         super.initData();
-
+        //设置标题
+        tv_title.setText("设置");
         //实例视图
         TextView  textView = new TextView(mContext);
         textView.setTextSize(20);
