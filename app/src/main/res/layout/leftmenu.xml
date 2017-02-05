@@ -2,12 +2,14 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:background="#44000000"
+    android:id="@+id/fl_leftmenu"
     android:layout_height="match_parent">
 
-    <TextView
+   <!-- <TextView
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="左侧菜单内容"
-        android:textColor="#000000" />
+        android:textColor="#000000" />-->
 
 </FrameLayout>
