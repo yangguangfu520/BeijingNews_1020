@@ -1,5 +1,6 @@
 package com.atguigu.beijingnews;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.animation.AlphaAnimation;
@@ -8,7 +9,8 @@ import android.view.animation.AnimationSet;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
+
+import com.atguigu.beijingnews.activity.GuideActivity;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -19,6 +21,12 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         activity_main = (RelativeLayout) findViewById(R.id.activity_main);
+        setAnimation();
+
+
+    }
+
+    private void setAnimation() {
         //三个动画：旋转动画，渐变动画，缩放动画
         RotateAnimation ra = new RotateAnimation(0, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
         ra.setDuration(2000);//设置持续时间
@@ -43,8 +51,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
         //监听动画播放完成
         set.setAnimationListener(new MyAnimationListener());
-
-
     }
 
     class MyAnimationListener implements Animation.AnimationListener {
@@ -65,7 +71,12 @@ public class WelcomeActivity extends AppCompatActivity {
         @Override
        public void onAnimationEnd(Animation animation) {
 
-            Toast.makeText(WelcomeActivity.this, "动画播放完成", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(WelcomeActivity.this, "动画播放完成", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(WelcomeActivity.this,GuideActivity.class);
+            startActivity(intent);
+            finish();
+
         }
 
         /**
