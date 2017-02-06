@@ -67,7 +67,9 @@ public class LeftMenuFragment extends BaseFragment {
     private void switchPager(int prePosition) {
         MainActivity mainActivity = (MainActivity) mContext;
         ContentFragment contentFragment = mainActivity.getContentFragment();
+        //得到新闻中心
         NewsCenterPager newsCenterPager = contentFragment.getNewsCenterPager();
+        //调用新闻中心的切换详情页面的方法
         newsCenterPager.switchPager(prePosition);
     }
 

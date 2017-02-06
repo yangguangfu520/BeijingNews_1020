@@ -24,6 +24,7 @@ public abstract class MenuDetailBasePager {
     public MenuDetailBasePager(Context context){
         this.mContext = context;
         rootView = initView();
+
     }
 
     /**
