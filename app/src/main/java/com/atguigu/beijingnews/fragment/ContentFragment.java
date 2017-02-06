@@ -7,12 +7,14 @@ import android.view.ViewGroup;
 import android.widget.RadioGroup;
 
 import com.atguigu.beijingnews.R;
+import com.atguigu.beijingnews.activity.MainActivity;
 import com.atguigu.beijingnews.base.BaseFragment;
 import com.atguigu.beijingnews.base.BasePager;
 import com.atguigu.beijingnews.pager.HomePager;
 import com.atguigu.beijingnews.pager.NewsCenterPager;
 import com.atguigu.beijingnews.pager.SettingPager;
 import com.atguigu.beijingnews.view.NoScrollViewPager;
+import com.slidingmenu.lib.SlidingMenu;
 
 import java.util.ArrayList;
 
@@ -63,12 +65,17 @@ public class ContentFragment extends BaseFragment {
         rgMain.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+                //先默认设置不可以滑动
+                MainActivity mainActivity = (MainActivity) mContext;
+                mainActivity.getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
                 switch (checkedId){
                     case R.id.rb_home:
                         viewpager.setCurrentItem(0,false);
                         break;
                     case R.id.rb_news:
                         viewpager.setCurrentItem(1,false);
+                        //当切换到新闻的时候，修改成可以滑动
+                        mainActivity.getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
                         break;
                     case R.id.rb_setting:
                         viewpager.setCurrentItem(2,false);
