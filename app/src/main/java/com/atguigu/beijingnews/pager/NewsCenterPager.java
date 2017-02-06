@@ -4,12 +4,13 @@ import android.content.Context;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.TextView;
 
 import com.atguigu.beijingnews.activity.MainActivity;
 import com.atguigu.beijingnews.base.BasePager;
 import com.atguigu.beijingnews.bean.NewsCenterBean;
-import com.atguigu.beijingnews.fragment.LeftMunuFragment;
+import com.atguigu.beijingnews.fragment.LeftMenuFragment;
 import com.atguigu.beijingnews.utils.Constants;
 import com.google.gson.Gson;
 
@@ -39,6 +40,8 @@ public class NewsCenterPager extends BasePager {
     public void initData() {
         super.initData();
         Log.e("TAG","新闻页面加载数据了");
+        //显示菜单按钮
+        ib_menu.setVisibility(View.VISIBLE);
         //设置标题
         tv_title.setText("新闻");
         //实例视图
@@ -100,7 +103,7 @@ public class NewsCenterPager extends BasePager {
         //把新闻中心的数据传递给左侧菜单
         MainActivity mainActivity = (MainActivity) mContext;
         //得到左侧菜单
-        LeftMunuFragment leftMunuFragment = mainActivity.getLeftMenuFragment();
+        LeftMenuFragment leftMunuFragment = mainActivity.getLeftMenuFragment();
         //调用LeftMunuFragment的setData
         leftMunuFragment.setData(dataBeanList);
         //2.绑定数据

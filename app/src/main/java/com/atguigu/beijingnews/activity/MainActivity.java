@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.atguigu.beijingnews.R;
 import com.atguigu.beijingnews.fragment.ContentFragment;
-import com.atguigu.beijingnews.fragment.LeftMunuFragment;
+import com.atguigu.beijingnews.fragment.LeftMenuFragment;
 import com.atguigu.beijingnews.utils.DensityUtil;
 import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingFragmentActivity;
@@ -49,13 +49,13 @@ public class MainActivity extends SlidingFragmentActivity {
         //1.得到事务
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         //2.替换:左侧菜单和主要
-        ft.replace(R.id.fl_leftmenu,new LeftMunuFragment(), LEFTMENU_TAG);
+        ft.replace(R.id.fl_leftmenu,new LeftMenuFragment(), LEFTMENU_TAG);
         ft.replace(R.id.fl_content,new ContentFragment(),  CONENT_TAG);
 
         //3.提交
         ft.commit();
 
-//        getSupportFragmentManager().beginTransaction().replace(R.id.fl_leftmenu,new LeftMunuFragment(), LEFTMENU_TAG).replace(R.id.fl_content,new ContentFragment(),  CONENT_TAG).commit();
+//        getSupportFragmentManager().beginTransaction().replace(R.id.fl_leftmenu,new LeftMenuFragment(), LEFTMENU_TAG).replace(R.id.fl_content,new ContentFragment(),  CONENT_TAG).commit();
 
     }
 
@@ -63,8 +63,8 @@ public class MainActivity extends SlidingFragmentActivity {
      * 得到左侧菜单
      * @return
      */
-    public LeftMunuFragment getLeftMenuFragment() {
+    public LeftMenuFragment getLeftMenuFragment() {
         //找同一个实例
-       return (LeftMunuFragment) getSupportFragmentManager().findFragmentByTag(LEFTMENU_TAG);
+       return (LeftMenuFragment) getSupportFragmentManager().findFragmentByTag(LEFTMENU_TAG);
     }
 }
