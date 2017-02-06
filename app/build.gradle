@@ -29,4 +29,5 @@ dependencies {
     compile 'com.jakewharton:butterknife:5.1.1'
     compile project(':SlidingMenu_library')
     compile 'org.xutils:xutils:3.3.40'
+    compile 'com.google.code.gson:gson:2.2.4'
 }
