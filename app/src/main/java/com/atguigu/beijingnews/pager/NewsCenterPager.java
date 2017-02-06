@@ -2,6 +2,7 @@ package com.atguigu.beijingnews.pager;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.atguigu.beijingnews.detailpager.NewsMenuDetailPager;
 import com.atguigu.beijingnews.detailpager.PhotosMenuDetailPager;
 import com.atguigu.beijingnews.detailpager.TopicMenuDetailPager;
 import com.atguigu.beijingnews.fragment.LeftMenuFragment;
+import com.atguigu.beijingnews.utils.CacheUtils;
 import com.atguigu.beijingnews.utils.Constants;
 
 import org.json.JSONArray;
@@ -64,6 +66,17 @@ public class NewsCenterPager extends BasePager {
         //和父类的FrameLayout结合
         fl_main.addView(textView);
 
+        String saveJson = CacheUtils.getString(mContext,Constants.NEWSCENTER_PAGER_URL);//""
+        if(!TextUtils.isEmpty(saveJson)){
+            processData(saveJson);
+
+        }
+
+//        if(saveJson != null){
+//            //能进来
+//              processData(saveJson);
+//        }
+
 
         //联网请求
         getDataFromNet();
@@ -77,6 +90,7 @@ public class NewsCenterPager extends BasePager {
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
+                CacheUtils.putString(mContext,Constants.NEWSCENTER_PAGER_URL,result);
                 Log.e("TAG", "请求成功=="+result);
                 processData(result);
             }
