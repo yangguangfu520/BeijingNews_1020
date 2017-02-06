@@ -73,6 +73,7 @@ public class ContentFragment extends BaseFragment {
                         viewpager.setCurrentItem(0,false);
                         break;
                     case R.id.rb_news:
+                        //Viewpager，切换到不同页面的方法
                         viewpager.setCurrentItem(1,false);
                         //当切换到新闻的时候，修改成可以滑动
                         mainActivity.getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
