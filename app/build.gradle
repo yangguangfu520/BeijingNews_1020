@@ -30,4 +30,5 @@ dependencies {
     compile project(':SlidingMenu_library')
     compile 'org.xutils:xutils:3.3.40'
     compile 'com.google.code.gson:gson:2.2.4'
+    compile project(':ViewPagerIndicator_library')
 }
