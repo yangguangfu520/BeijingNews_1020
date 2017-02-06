@@ -9,7 +9,12 @@ import android.widget.TextView;
 
 import com.atguigu.beijingnews.activity.MainActivity;
 import com.atguigu.beijingnews.base.BasePager;
+import com.atguigu.beijingnews.base.MenuDetailBasePager;
 import com.atguigu.beijingnews.bean.NewsCenterBean;
+import com.atguigu.beijingnews.detailpager.InteractMenuDetailPager;
+import com.atguigu.beijingnews.detailpager.NewsMenuDetailPager;
+import com.atguigu.beijingnews.detailpager.PhotosMenuDetailPager;
+import com.atguigu.beijingnews.detailpager.TopicMenuDetailPager;
 import com.atguigu.beijingnews.fragment.LeftMenuFragment;
 import com.atguigu.beijingnews.utils.Constants;
 import com.google.gson.Gson;
@@ -18,6 +23,7 @@ import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,6 +33,8 @@ import java.util.List;
  * 作用：新闻中心
  */
 public class NewsCenterPager extends BasePager {
+
+    private ArrayList<MenuDetailBasePager> menuDetailBasePagers;
     /**
      * 左侧菜单对应的数据
      */
@@ -104,9 +112,40 @@ public class NewsCenterPager extends BasePager {
         MainActivity mainActivity = (MainActivity) mContext;
         //得到左侧菜单
         LeftMenuFragment leftMunuFragment = mainActivity.getLeftMenuFragment();
+
+        //2.绑定数据
+
+        menuDetailBasePagers = new ArrayList<>();
+        menuDetailBasePagers.add(new NewsMenuDetailPager(mainActivity));//新闻详情页面
+        menuDetailBasePagers.add(new TopicMenuDetailPager(mainActivity));//专题详情页面
+        menuDetailBasePagers.add(new PhotosMenuDetailPager(mainActivity));//组图详情页面
+        menuDetailBasePagers.add(new InteractMenuDetailPager(mainActivity));//互动详情页面
         //调用LeftMunuFragment的setData
         leftMunuFragment.setData(dataBeanList);
-        //2.绑定数据
+
+
+
+//        switchPager(0);
+
+    }
+
+    /**
+     * 更加位置切换到不同的详情页面
+     * @param prePosition
+     */
+    public void switchPager(int prePosition) {
+        //设置标题
+        tv_title.setText(dataBeanList.get(prePosition).getTitle());
+
+
+        MenuDetailBasePager menuDetailBasePager  = menuDetailBasePagers.get(prePosition);
+        menuDetailBasePager.initData();
+        //视图
+        View rootView = menuDetailBasePager.rootView;
+        fl_main.removeAllViews();//移除之前的
+        fl_main.addView(rootView);
+
+
 
     }
 }

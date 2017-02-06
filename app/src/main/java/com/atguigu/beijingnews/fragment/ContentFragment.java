@@ -91,6 +91,14 @@ public class ContentFragment extends BaseFragment {
         basePagers.get(1).initData();//孩子的视图和父类的FrameLayout结合
     }
 
+    /**
+     * 得到新闻中心
+     * @return
+     */
+    public NewsCenterPager getNewsCenterPager() {
+        return (NewsCenterPager) basePagers.get(1);
+    }
+
     class MyOnPageChangeListener implements ViewPager.OnPageChangeListener{
 
         @Override
