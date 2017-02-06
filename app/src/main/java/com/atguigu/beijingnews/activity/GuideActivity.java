@@ -33,6 +33,9 @@ public class GuideActivity extends AppCompatActivity {
     @InjectView(R.id.iv_red_point)
     ImageView ivRedPoint;
 
+    /**
+     * 数据集合
+     */
     private int[] ids = {R.drawable.guide_1, R.drawable.guide_2, R.drawable.guide_3};
     private int leftMagin;
 
@@ -107,10 +110,12 @@ public class GuideActivity extends AppCompatActivity {
 
 //            红点移动距离 ： 间距 = 手滑动的距离：屏幕宽 = 屏幕滑动的百分比
 //            红点移动距离 = 间距 * 屏幕滑动的百分比
-             int maginLeft = (int) (leftMagin * positionOffset);
+//             int maginLeft = (int) (leftMagin * positionOffset);
 //            红点移动的坐标 = 起始坐标 + 红点移动距离
-            maginLeft =position * leftMagin + (int) (leftMagin * positionOffset);
+//            maginLeft =position * leftMagin + (int) (leftMagin * positionOffset);
+            int maginLeft = (int) (leftMagin*(position   +  positionOffset));
             RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) ivRedPoint.getLayoutParams();
+            //距离左边的距离产生变化
             params.leftMargin = maginLeft;
             ivRedPoint.setLayoutParams(params);
 

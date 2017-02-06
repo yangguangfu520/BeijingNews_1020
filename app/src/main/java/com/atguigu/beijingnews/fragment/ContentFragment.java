@@ -1,7 +1,6 @@
 package com.atguigu.beijingnews.fragment;
 
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
@@ -12,6 +11,7 @@ import com.atguigu.beijingnews.base.BasePager;
 import com.atguigu.beijingnews.pager.HomePager;
 import com.atguigu.beijingnews.pager.NewsCenterPager;
 import com.atguigu.beijingnews.pager.SettingPager;
+import com.atguigu.beijingnews.view.NoScrollViewPager;
 
 import java.util.ArrayList;
 
@@ -26,10 +26,13 @@ import butterknife.InjectView;
  */
 public class ContentFragment extends BaseFragment {
     @InjectView(R.id.viewpager)
-    ViewPager viewpager;
+    NoScrollViewPager viewpager;
     @InjectView(R.id.rg_main)
     RadioGroup rgMain;
 
+    /**
+     * 三个页面的集合
+     */
     private ArrayList<BasePager> basePagers;
 
     @Override
@@ -48,8 +51,10 @@ public class ContentFragment extends BaseFragment {
         //初始化3个页面
         initPager();
 
+        //设置适配器
         setAdapter();
 
+        //设置RadioGroup状态选中的监听
         initListener();
     }
 
@@ -98,7 +103,7 @@ public class ContentFragment extends BaseFragment {
             View rootView = basePager.rootView;//代表不同页面的实例
 
             //调用initData
-            basePager.initData();
+            basePager.initData();//孩子的视图和父类的FrameLayout结合
 
             container.addView(rootView);
 

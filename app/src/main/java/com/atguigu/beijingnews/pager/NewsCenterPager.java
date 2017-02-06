@@ -32,5 +32,8 @@ public class NewsCenterPager extends BasePager {
 
         //和父类的FrameLayout结合
         fl_main.addView(textView);
+
+
+        //联网请求
     }
 }
