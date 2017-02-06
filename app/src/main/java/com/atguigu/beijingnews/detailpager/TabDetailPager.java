@@ -7,18 +7,20 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.atguigu.beijingnews.base.MenuDetailBasePager;
+import com.atguigu.beijingnews.bean.NewsCenterBean;
 
 /**
- * 作者：尚硅谷-杨光福 on 2017/2/6 11:27
+ * 作者：尚硅谷-杨光福 on 2017/2/6 15:26
  * 微信：yangguangfu520
  * QQ号：541433511
- * 作用：图组详情页面
+ * 作用：xxxx
  */
-public class PhotosMenuDetailPager extends MenuDetailBasePager {
+public class TabDetailPager extends MenuDetailBasePager {
+    private final NewsCenterBean.DataBean.ChildrenBean childrenBean;
 
-
-    public PhotosMenuDetailPager(Context context) {
+    public TabDetailPager(Context context, NewsCenterBean.DataBean.ChildrenBean childrenBean) {
         super(context);
+        this.childrenBean = childrenBean;
     }
     private TextView textView;
     @Override
@@ -34,7 +36,7 @@ public class PhotosMenuDetailPager extends MenuDetailBasePager {
     @Override
     public void initData() {
         super.initData();
-        textView.setText("图组详情页面内容");
+        textView.setText(childrenBean.getTitle());
     }
 
 }
