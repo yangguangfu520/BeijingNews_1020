@@ -5,6 +5,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.atguigu.beijingnews.R;
 import com.atguigu.beijingnews.base.MenuDetailBasePager;
@@ -16,6 +17,7 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 
 /**
  * 作者：尚硅谷-杨光福 on 2017/2/6 11:27
@@ -37,6 +39,8 @@ public class NewsMenuDetailPager extends MenuDetailBasePager {
     ViewPager viewpager;
     @InjectView(R.id.indicator)
     TabPageIndicator indicator;
+    @InjectView(R.id.ib_next)
+    ImageButton ibNext;
 
     public NewsMenuDetailPager(Context context, NewsCenterBean.DataBean dataBean) {
         super(context);
@@ -58,8 +62,8 @@ public class NewsMenuDetailPager extends MenuDetailBasePager {
         //准备数据-页面
         tabDetailPagers = new ArrayList<>();
         //根据有多少数据创建多少个TabDetailPager，并且把数据传入到对象中
-        for (int i=0;i<childrenData.size();i++){
-            tabDetailPagers.add(new TabDetailPager(mContext,childrenData.get(i)));
+        for (int i = 0; i < childrenData.size(); i++) {
+            tabDetailPagers.add(new TabDetailPager(mContext, childrenData.get(i)));
         }
 
         //设置适配器
@@ -71,7 +75,13 @@ public class NewsMenuDetailPager extends MenuDetailBasePager {
 
     }
 
-    class MyPagerAdapter extends PagerAdapter{
+    @OnClick(R.id.ib_next)
+    public void onClick() {
+        //切换到下一个页面
+        indicator.setCurrentItem(viewpager.getCurrentItem()+1);
+    }
+
+    class MyPagerAdapter extends PagerAdapter {
 
         @Override
         public CharSequence getPageTitle(int position) {
@@ -85,7 +95,7 @@ public class NewsMenuDetailPager extends MenuDetailBasePager {
 
         @Override
         public boolean isViewFromObject(View view, Object object) {
-            return view ==object;
+            return view == object;
         }
 
         @Override
@@ -99,7 +109,7 @@ public class NewsMenuDetailPager extends MenuDetailBasePager {
             tabDetailPager.initData();//不要忘记
             View rootView = tabDetailPager.rootView;
             container.addView(rootView);
-            return  rootView;
+            return rootView;
         }
     }
 
