@@ -7,12 +7,14 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.atguigu.baselibrary.CacheUtils;
 import com.atguigu.baselibrary.Constants;
 import com.atguigu.baselibrary.DensityUtil;
 import com.atguigu.beijingnews.R;
@@ -44,6 +46,7 @@ import butterknife.InjectView;
  * 作用：xxxx
  */
 public class TabDetailPager extends MenuDetailBasePager {
+    public static final String ID_ARRAY = "id_array";
     private final NewsCenterBean.DataBean.ChildrenBean childrenBean;
 
     @InjectView(R.id.pull_refresh_list)
@@ -108,6 +111,35 @@ public class TabDetailPager extends MenuDetailBasePager {
 
         //设置下拉和上拉刷新
         refreshListView.setOnRefreshListener(new MyOnRefreshListener2());
+
+        //设置ListView的item的点击事件
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                //得到Bean对象
+                TabDetailPagerBean.DataEntity.NewsEntity newsEntity = news.get(position-2);
+                String title = newsEntity.getTitle();
+                int  ids = newsEntity.getId();
+                Log.e("TAG","tilet=="+title+",id=="+ids);
+
+                //1.获取是否已经存在,如果不存在才保存
+                String idArray = CacheUtils.getString(mContext, ID_ARRAY);//""-->1111,
+                //如果不包含才保存
+                if(!idArray.contains(ids+"")){
+                    //保存点击过的item的对应的id
+                    CacheUtils.putString(mContext,ID_ARRAY,idArray+ids+",");
+
+
+                    adapter.notifyDataSetChanged();//getCount-->getView
+                    //2.刷新适配器
+                }
+
+
+
+
+            }
+        });
         return view;
     }
 
