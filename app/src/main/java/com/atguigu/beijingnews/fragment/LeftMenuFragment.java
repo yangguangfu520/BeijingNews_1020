@@ -8,12 +8,12 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.atguigu.baselibrary.DensityUtil;
 import com.atguigu.beijingnews.R;
 import com.atguigu.beijingnews.activity.MainActivity;
 import com.atguigu.beijingnews.base.BaseFragment;
 import com.atguigu.beijingnews.bean.NewsCenterBean;
 import com.atguigu.beijingnews.pager.NewsCenterPager;
-import com.atguigu.beijingnews.utils.DensityUtil;
 
 import java.util.List;
 

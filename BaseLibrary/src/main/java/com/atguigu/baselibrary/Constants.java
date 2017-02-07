@@ -1,4 +1,4 @@
-package com.atguigu.beijingnews.utils;
+package com.atguigu.baselibrary;
 
 /**
  * 作者：尚硅谷-杨光福 on 2017/2/6 10:11

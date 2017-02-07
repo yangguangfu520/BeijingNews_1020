@@ -1,4 +1,4 @@
-include ':app'
+include ':app', ':BaseLibrary'
 include ':SlidingMenu_library'
 include ':ViewPagerIndicator_library'
 include ':ViewPagerIndicator_sample'

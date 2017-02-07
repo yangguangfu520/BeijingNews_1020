@@ -14,9 +14,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.atguigu.baselibrary.CacheUtils;
+import com.atguigu.baselibrary.DensityUtil;
 import com.atguigu.beijingnews.R;
-import com.atguigu.beijingnews.utils.CacheUtils;
-import com.atguigu.beijingnews.utils.DensityUtil;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

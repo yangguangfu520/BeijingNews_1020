@@ -8,6 +8,8 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.atguigu.baselibrary.CacheUtils;
+import com.atguigu.baselibrary.Constants;
 import com.atguigu.beijingnews.activity.MainActivity;
 import com.atguigu.beijingnews.base.BasePager;
 import com.atguigu.beijingnews.base.MenuDetailBasePager;
@@ -17,8 +19,6 @@ import com.atguigu.beijingnews.detailpager.NewsMenuDetailPager;
 import com.atguigu.beijingnews.detailpager.PhotosMenuDetailPager;
 import com.atguigu.beijingnews.detailpager.TopicMenuDetailPager;
 import com.atguigu.beijingnews.fragment.LeftMenuFragment;
-import com.atguigu.beijingnews.utils.CacheUtils;
-import com.atguigu.beijingnews.utils.Constants;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -66,7 +66,7 @@ public class NewsCenterPager extends BasePager {
         //和父类的FrameLayout结合
         fl_main.addView(textView);
 
-        String saveJson = CacheUtils.getString(mContext,Constants.NEWSCENTER_PAGER_URL);//""
+        String saveJson = CacheUtils.getString(mContext, Constants.NEWSCENTER_PAGER_URL);//""
         if(!TextUtils.isEmpty(saveJson)){
             processData(saveJson);
 

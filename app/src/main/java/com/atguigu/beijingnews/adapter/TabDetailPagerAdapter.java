@@ -7,9 +7,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.atguigu.baselibrary.Constants;
 import com.atguigu.beijingnews.R;
 import com.atguigu.beijingnews.bean.TabDetailPagerBean;
-import com.atguigu.beijingnews.utils.Constants;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 

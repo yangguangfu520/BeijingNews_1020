@@ -11,13 +11,14 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.atguigu.baselibrary.Constants;
+import com.atguigu.baselibrary.DensityUtil;
 import com.atguigu.beijingnews.R;
 import com.atguigu.beijingnews.adapter.TabDetailPagerAdapter;
 import com.atguigu.beijingnews.base.MenuDetailBasePager;
 import com.atguigu.beijingnews.bean.NewsCenterBean;
 import com.atguigu.beijingnews.bean.TabDetailPagerBean;
-import com.atguigu.beijingnews.utils.Constants;
-import com.atguigu.beijingnews.utils.DensityUtil;
+import com.atguigu.beijingnews.view.HorizontalScrollViewPager;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.Gson;
@@ -43,7 +44,7 @@ public class TabDetailPager extends MenuDetailBasePager {
     ListView listview;
 
 
-    ViewPager viewpager;
+    HorizontalScrollViewPager viewpager;
     TextView tvTitle;
     LinearLayout llGroupPoint;
 
@@ -74,7 +75,7 @@ public class TabDetailPager extends MenuDetailBasePager {
 //        Button button =new Button(mContext);
 //        button.setText("我是头部的按钮哦");
         View headerView = View.inflate(mContext, R.layout.header_view, null);
-        viewpager = (ViewPager) headerView.findViewById(R.id.viewpager);
+        viewpager = (HorizontalScrollViewPager) headerView.findViewById(R.id.viewpager);
         tvTitle = (TextView) headerView.findViewById(R.id.tv_title);
         llGroupPoint = (LinearLayout) headerView.findViewById(R.id.ll_group_point);
 
