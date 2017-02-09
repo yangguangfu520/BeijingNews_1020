@@ -136,7 +136,7 @@ public class NewsCenterPager extends BasePager {
 
         menuDetailBasePagers = new ArrayList<>();
         menuDetailBasePagers.add(new NewsMenuDetailPager(mainActivity,dataBeanList.get(0)));//新闻详情页面
-        menuDetailBasePagers.add(new TopicMenuDetailPager(mainActivity));//专题详情页面
+        menuDetailBasePagers.add(new TopicMenuDetailPager(mainActivity,dataBeanList.get(0)));//专题详情页面
         menuDetailBasePagers.add(new PhotosMenuDetailPager(mainActivity,dataBeanList.get(2)));//组图详情页面
         menuDetailBasePagers.add(new InteractMenuDetailPager(mainActivity));//互动详情页面
         //调用LeftMunuFragment的setData

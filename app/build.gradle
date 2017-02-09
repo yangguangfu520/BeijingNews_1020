@@ -37,4 +37,5 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:24.2.1'
     compile project(':PhotoView_library')
     compile files('libs/picasso-2.5.2.jar')
+    compile 'com.android.support:design:24.2.1'
 }
