@@ -64,4 +64,15 @@
             android:visibility="gone" />
 
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/ib_swich_list_gird"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/icon_pic_grid_type"
+        android:visibility="gone" />
 </RelativeLayout>

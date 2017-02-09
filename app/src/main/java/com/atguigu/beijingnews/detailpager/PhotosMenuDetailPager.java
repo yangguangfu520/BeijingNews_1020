@@ -1,10 +1,12 @@
 package com.atguigu.beijingnews.detailpager;
 
 import android.content.Context;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 
 import com.atguigu.baselibrary.Constants;
 import com.atguigu.beijingnews.R;
@@ -97,4 +99,24 @@ public class PhotosMenuDetailPager extends MenuDetailBasePager {
 
     }
 
+    private boolean isList = true;
+
+    public void swichListGrid(ImageButton ib_swich_list_gird) {
+        if(isList){
+            //Grid
+            isList = false;
+            //设置布局管理器
+            recyclerview.setLayoutManager(new GridLayoutManager(mContext,2,GridLayoutManager.VERTICAL,false));
+
+            //按钮设置List效果
+            ib_swich_list_gird.setImageResource(R.drawable.icon_pic_list_type);
+        }else{
+            //List
+            recyclerview.setLayoutManager(new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false));
+            isList = true;
+            //按钮设置Grid效果
+            ib_swich_list_gird.setImageResource(R.drawable.icon_pic_grid_type);
+        }
+
+    }
 }
