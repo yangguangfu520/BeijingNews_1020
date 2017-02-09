@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script type="text/javascript">
+
+	function javaCallJs(){
+		 document.getElementById("content").innerHTML +=   
+	         "<br\>java调用了js无参函数";
+	}
+	
+	function javaCallJs(arg){
+		 document.getElementById("content").innerHTML =
+	         ("欢迎："+arg );
+	}
+	
+	
+   function showDialog(){
+      alert("谷粉们你好,我是来自javascript");
+   }
+   
+
+
+
+
+
+    </script>
+
+
+</head>
+
+
+<body>
+
+<div align="left" id="content"> 谷粉</div>
+<div align="right">光临尚硅谷</div>
+
+<p><img src="http://atguigu.com/images/logo.gif"></p>
+
+
+<input type="button" value="点击Android被调用" onclick="window.Android.showToast()" />
+
+</body>
+
+
+</html>
