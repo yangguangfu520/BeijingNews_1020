@@ -14,7 +14,6 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.atguigu.baselibrary.CacheUtils;
 import com.atguigu.beijingnews.activity.GuideActivity;
@@ -30,10 +29,12 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //得到屏幕的宽和高
         DisplayMetrics outMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(outMetrics);
         screenWidth = outMetrics.widthPixels;
         screenHeight = outMetrics.heightPixels;
+
         setContentView(R.layout.activity_welcome);
         activity_main = (RelativeLayout) findViewById(R.id.activity_main);
         iv_icon = (ImageView) findViewById(R.id.iv_icon);
@@ -100,7 +101,6 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void setObjectAnimator() {
-
         ObjectAnimator animator = ObjectAnimator.ofFloat(activity_main,"rotation",0,360);
         ObjectAnimator animator2 = ObjectAnimator.ofFloat(activity_main, "alpha", 0, 1);
         //设置旋转的中心点
@@ -109,7 +109,6 @@ public class WelcomeActivity extends AppCompatActivity {
         ObjectAnimator animator3 = ObjectAnimator.ofFloat(activity_main, "scaleY", 0f, 1f, 1f);
         ObjectAnimator animator4 = ObjectAnimator.ofFloat(activity_main, "scaleX", 0f, 1f, 1f);
 
-        Toast.makeText(this, ""+activity_main.getMeasuredHeight(), Toast.LENGTH_SHORT).show();
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.setDuration(2000);
 //        animatorSet.setInterpolator(new BounceInterpolator());
@@ -118,13 +117,9 @@ public class WelcomeActivity extends AppCompatActivity {
         //开始播放
         animatorSet.start();
 
-
-
-
         animatorSet.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
-
             }
 
             @Override
@@ -147,16 +142,12 @@ public class WelcomeActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationCancel(Animator animation) {
-
             }
 
             @Override
             public void onAnimationRepeat(Animator animation) {
-
             }
         });
-
-//
     }
 
 
