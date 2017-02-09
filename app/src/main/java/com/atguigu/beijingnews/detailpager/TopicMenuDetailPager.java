@@ -71,6 +71,7 @@ public class TopicMenuDetailPager extends MenuDetailBasePager {
             tabDetailPagers.add(new TabDetailPager(mContext, childrenData.get(i)));
         }
 
+
         //设置适配器
         viewpager.setAdapter(new TopicMenuDetailPager.MyPagerAdapter());
 
