@@ -1,6 +1,7 @@
 package com.atguigu.beijingnews.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.atguigu.baselibrary.Constants;
 import com.atguigu.beijingnews.R;
+import com.atguigu.beijingnews.activity.PicassoSampleActivity;
 import com.atguigu.beijingnews.bean.PhotosMenuDetailPagerBean;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -27,8 +29,8 @@ import butterknife.InjectView;
 public class PhotosMenuDetailPagerAdapter extends RecyclerView.Adapter<PhotosMenuDetailPagerAdapter.ViewHolder> {
 
 
-    private final Context mContext;
-    private final List<PhotosMenuDetailPagerBean.DataEntity.NewsEntity> datas;
+    private  Context mContext;
+    private  List<PhotosMenuDetailPagerBean.DataEntity.NewsEntity> datas;
 
     public PhotosMenuDetailPagerAdapter(Context mContext, List<PhotosMenuDetailPagerBean.DataEntity.NewsEntity> news) {
         this.mContext = mContext;
@@ -60,7 +62,7 @@ public class PhotosMenuDetailPagerAdapter extends RecyclerView.Adapter<PhotosMen
         return datas.size();
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+     class ViewHolder extends RecyclerView.ViewHolder {
 
         @InjectView(R.id.iv_icon)
         ImageView ivIcon;
@@ -70,6 +72,18 @@ public class PhotosMenuDetailPagerAdapter extends RecyclerView.Adapter<PhotosMen
         ViewHolder(View view) {
             super(view);
             ButterKnife.inject(this, view);
+            //设置点击事件
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent intent = new Intent(mContext, PicassoSampleActivity.class);
+                    intent.putExtra("url",Constants.BASE_URL+datas.get(getLayoutPosition()).getListimage());
+                    mContext.startActivity(intent);
+
+
+                }
+            });
         }
     }
 

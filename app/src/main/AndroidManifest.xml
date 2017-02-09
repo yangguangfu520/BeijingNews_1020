@@ -24,6 +24,7 @@
             android:name=".activity.MainActivity"
             android:theme="@style/Theme.PageIndicatorDefaults" />
         <activity android:name=".activity.NewsDetailActivity"></activity>
+        <activity android:name=".activity.PicassoSampleActivity"/>
     </application>
 
 </manifest>
