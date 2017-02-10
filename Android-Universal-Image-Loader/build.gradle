@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.3"
+
+    defaultConfig {
+        applicationId "com.nostra13.universalimageloader"
+        minSdkVersion 14
+        targetSdkVersion 24
+        versionCode 40
+        versionName "1.9.5"
+    }
+
+    useLibrary 'org.apache.http.legacy'
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile project(':Universal-Image-Loader_library')
+    compile 'com.android.support:support-v4:24.2.1'
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
+}
+
+
+//File propFile = file('signing.properties');
+//if (propFile.exists()) {
+//    def Properties props = new Properties()
+//    props.load(new FileInputStream(propFile))
+//
+//    if (props.containsKey('STORE_FILE') && props.containsKey('STORE_PASSWORD') &&
+//            props.containsKey('KEY_ALIAS') && props.containsKey('KEY_PASSWORD')) {
+//        android.signingConfigs.release.storeFile = file(props['STORE_FILE'])
+//        android.signingConfigs.release.storePassword = props['STORE_PASSWORD']
+//        android.signingConfigs.release.keyAlias = props['KEY_ALIAS']
+//        android.signingConfigs.release.keyPassword = props['KEY_PASSWORD']
+//    } else {
+//        android.buildTypes.release.signingConfig = null
+//    }
+//} else {
+//    android.buildTypes.release.signingConfig = null
+//}
