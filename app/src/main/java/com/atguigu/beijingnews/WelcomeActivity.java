@@ -53,6 +53,7 @@ public class WelcomeActivity extends AppCompatActivity {
         RotateAnimation ra = new RotateAnimation(0, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
         ra.setDuration(2000);//设置持续时间
         ra.setFillAfter(true);//设置停留在旋转后的状态
+
         AlphaAnimation aa = new AlphaAnimation(0, 1);
         aa.setDuration(2000);//设置持续时间
         aa.setFillAfter(true);//设置停留在旋转后的状态
@@ -117,6 +118,7 @@ public class WelcomeActivity extends AppCompatActivity {
         //开始播放
         animatorSet.start();
 
+        ///监听播放完成
         animatorSet.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {

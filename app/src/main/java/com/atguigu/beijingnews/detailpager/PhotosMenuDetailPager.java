@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.atguigu.baselibrary.Constants;
 import com.atguigu.beijingnews.R;
@@ -111,7 +110,7 @@ public class PhotosMenuDetailPager extends MenuDetailBasePager {
         Log.e("TAG","数组解析数据成功======"+ bean.getData().getNews().get(0).getTitle());
 
         //设置RecyclerView的适配器
-        adapter = new PhotosMenuDetailPagerAdapter(mContext,bean.getData().getNews());
+        adapter = new PhotosMenuDetailPagerAdapter(mContext,bean.getData().getNews(),recyclerview);
         recyclerview.setAdapter(adapter);
 
         //设置布局管理器
