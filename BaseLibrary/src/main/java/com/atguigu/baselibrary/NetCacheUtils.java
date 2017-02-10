@@ -28,11 +28,21 @@ public class NetCacheUtils {
      */
     public static final int FAIL = 2;
     private final Handler handler;
+    /**
+     * 本地缓存工具类
+     */
+    private final LocalCacheUtils localCacheutils;
+    /**
+     * 内存缓存工具类
+     */
+    private final MemoryCacheUtils memoryCacheUtils;
     private ExecutorService service;
 
-    public NetCacheUtils(Handler handler) {
+    public NetCacheUtils(Handler handler, LocalCacheUtils localCacheutils, MemoryCacheUtils memoryCacheUtils) {
         this.handler = handler;
         service =  Executors.newFixedThreadPool(10);
+        this.localCacheutils = localCacheutils;
+        this.memoryCacheUtils = memoryCacheUtils;
     }
 
     public void getBitmapFromNet(String url, int position) {
@@ -69,7 +79,9 @@ public class NetCacheUtils {
                     Bitmap bitmap = BitmapFactory.decodeStream(is);
 
                     //保存一份到本地
+                    localCacheutils.putBitmap(url,bitmap);
                     //保存一份到内存
+                    memoryCacheUtils.putBitmap(url,bitmap);
 
                     //把图片显示到控件上
                     Message msg = Message.obtain();
