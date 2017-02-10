@@ -6,10 +6,12 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.atguigu.baselibrary.CacheUtils;
 import com.atguigu.baselibrary.Constants;
 import com.atguigu.beijingnews.R;
 import com.atguigu.beijingnews.adapter.PhotosMenuDetailPagerAdapter;
@@ -75,15 +77,20 @@ public class PhotosMenuDetailPager extends MenuDetailBasePager {
 
         url = Constants.BASE_URL + dataBean.getUrl();
         Log.e("TAG","图组的网络地址====="+url);
+        String saveJson = CacheUtils.getString(mContext,url);
+        if(!TextUtils.isEmpty(saveJson)){
+            processData(saveJson);
+        }
         getDataFromNet(url);
     }
 
-    private void getDataFromNet(String url) {
+    private void getDataFromNet(final String url) {
         RequestParams params = new RequestParams(url);
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
                 Log.e("TAG","图组数据请求成功==");
+                CacheUtils.putString(mContext,url,result);
                 processData(result);
                 swipe_refresh_layout.setRefreshing(false);
             }
