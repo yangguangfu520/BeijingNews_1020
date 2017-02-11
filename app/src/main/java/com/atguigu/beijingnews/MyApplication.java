@@ -7,11 +7,15 @@ import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.zhy.http.okhttp.OkHttpUtils;
 
 import org.xutils.x;
 
+import java.util.concurrent.TimeUnit;
+
 import cn.jpush.android.api.JPushInterface;
 import cn.sharesdk.framework.ShareSDK;
+import okhttp3.OkHttpClient;
 
 
 /**
@@ -34,6 +38,19 @@ public class MyApplication extends Application {
 
         //初始化ShareSDK
         ShareSDK.initSDK(this);
+
+        initOkhttputil();
+    }
+
+    private void initOkhttputil() {
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+//                .addInterceptor(new LoggerInterceptor("TAG"))
+                .connectTimeout(10000L, TimeUnit.MILLISECONDS)
+                .readTimeout(10000L, TimeUnit.MILLISECONDS)
+                //其他配置
+                .build();
+
+        OkHttpUtils.initClient(okHttpClient);
     }
 
 

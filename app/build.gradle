@@ -53,4 +53,5 @@ dependencies {
     compile files('libs/ShareSDK-Wechat-Core-2.8.0.jar')
     compile files('libs/ShareSDK-Wechat-Favorite-2.8.0.jar')
     compile files('libs/ShareSDK-Wechat-Moments-2.8.0.jar')
+    compile 'com.zhy:okhttputils:2.6.2'
 }
