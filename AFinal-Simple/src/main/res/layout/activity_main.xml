@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   >
+
+    <TextView
+        android:id="@+id/textView"
+        android:text="显示结过"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="getDete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请求数据" />
+
+    <Button
+        android:onClick="downloadFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="下载文件" />
+</LinearLayout>

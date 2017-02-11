@@ -41,6 +41,7 @@ public class MyApplication extends Application {
 
         initOkhttputil();
 
+        //注册监听软件崩溃
         CrashHandler catchHandler = CrashHandler.getInstance();
         catchHandler.init(getApplicationContext());
     }
