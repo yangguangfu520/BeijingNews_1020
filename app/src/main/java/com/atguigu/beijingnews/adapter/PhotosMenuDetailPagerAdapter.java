@@ -100,8 +100,14 @@ public class PhotosMenuDetailPagerAdapter extends RecyclerView.Adapter<PhotosMen
         //Glide加载图片-----------------
 //        Glide.with(mContext).load(Constants.BASE_URL+newsEntity.getListimage())
 //                .diskCacheStrategy(DiskCacheStrategy.ALL)
+//                .transform(new CornersTransform(mContext,15))
 //                .placeholder(R.drawable.news_pic_default)
 //                .error(R.drawable.news_pic_default)
+//                .into(holder.ivIcon);
+
+        //https://github.com/wasabeef/glide-transformations
+//        Glide.with(mContext).load(Constants.BASE_URL+newsEntity.getListimage())
+//                .bitmapTransform(new RoundedCornersTransformation(mContext,20,0))
 //                .into(holder.ivIcon);
         //自定义图片三级缓存---------------
         //设置标识
