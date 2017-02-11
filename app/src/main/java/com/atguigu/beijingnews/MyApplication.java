@@ -40,6 +40,9 @@ public class MyApplication extends Application {
         ShareSDK.initSDK(this);
 
         initOkhttputil();
+
+        CrashHandler catchHandler = CrashHandler.getInstance();
+        catchHandler.init(getApplicationContext());
     }
 
     private void initOkhttputil() {

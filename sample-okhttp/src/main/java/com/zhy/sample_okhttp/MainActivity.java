@@ -327,6 +327,11 @@ public class MainActivity extends AppCompatActivity
                         Log.e(TAG, "onError :" + e.getMessage());
                     }
 
+                    /**
+                     * 回调
+                     * @param file
+                     * @param id
+                     */
                     @Override
                     public void onResponse(File file, int id)
                     {

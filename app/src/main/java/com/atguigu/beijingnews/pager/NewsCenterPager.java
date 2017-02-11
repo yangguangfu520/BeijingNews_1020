@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.atguigu.baselibrary.CacheUtils;
 import com.atguigu.baselibrary.Constants;
@@ -238,30 +239,36 @@ public class NewsCenterPager extends BasePager {
         //设置标题
         tv_title.setText(dataBeanList.get(prePosition).getTitle());
 
+        if(prePosition < menuDetailBasePagers.size()){
+            MenuDetailBasePager menuDetailBasePager = menuDetailBasePagers.get(prePosition);
+            //调用
+            menuDetailBasePager.initData();
+            //视图
+            View rootView = menuDetailBasePager.rootView;
+            fl_main.removeAllViews();//移除之前的
+            fl_main.addView(rootView);
 
-        MenuDetailBasePager menuDetailBasePager = menuDetailBasePagers.get(prePosition);
-        //调用
-        menuDetailBasePager.initData();
-        //视图
-        View rootView = menuDetailBasePager.rootView;
-        fl_main.removeAllViews();//移除之前的
-        fl_main.addView(rootView);
 
+            if(prePosition ==2){
+                //组图
+                ib_swich_list_gird.setVisibility(View.VISIBLE);
+                ib_swich_list_gird.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        PhotosMenuDetailPager photosMenuDetailPager = (PhotosMenuDetailPager) menuDetailBasePagers.get(2);
+                        photosMenuDetailPager.swichListGrid(ib_swich_list_gird);
+                    }
+                });
+            }else{
+                //其他
+                ib_swich_list_gird.setVisibility(View.GONE);
+            }
 
-        if(prePosition ==2){
-            //组图
-            ib_swich_list_gird.setVisibility(View.VISIBLE);
-            ib_swich_list_gird.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    PhotosMenuDetailPager photosMenuDetailPager = (PhotosMenuDetailPager) menuDetailBasePagers.get(2);
-                    photosMenuDetailPager.swichListGrid(ib_swich_list_gird);
-                }
-            });
         }else{
-            //其他
-            ib_swich_list_gird.setVisibility(View.GONE);
+            Toast.makeText(mContext, "该页面暂时未实现", Toast.LENGTH_SHORT).show();
         }
+
+
 
 
     }
