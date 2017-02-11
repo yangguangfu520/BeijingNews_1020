@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="hello">Hello World, EX08_11</string>
+  <string name="app_name">EX08_11</string>
+  <string name="str_button">按我上传</string>
+  <string name="str_title">文件上传范例：</string>
+</resources>
