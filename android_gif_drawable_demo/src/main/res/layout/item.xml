@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifimageview"
+        android:padding="10dp"
+        android:scaleType="fitXY"
+        android:layout_height="200dp"
+        android:background="@drawable/vedio_default"
+        android:layout_width="match_parent"/>
+
+    <TextView
+        android:textSize="20sp"
+        android:text="图片"
+        android:id="@+id/tv_title"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
