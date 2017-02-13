@@ -2,8 +2,8 @@ package com.atguigu.beijingnews.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.util.DisplayMetrics;
 
-import com.atguigu.baselibrary.DensityUtil;
 import com.atguigu.beijingnews.R;
 import com.atguigu.beijingnews.fragment.ContentFragment;
 import com.atguigu.beijingnews.fragment.LeftMenuFragment;
@@ -16,12 +16,17 @@ public class MainActivity extends SlidingFragmentActivity {
     public static final String LEFTMENU_TAG = "leftmenu_tag";
     public static final String CONENT_TAG = "conent_tag";
 
+    int screenWidth;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //1.设置主页面
         setContentView(R.layout.activity_main);
 
+
+        DisplayMetrics out = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(out);
+        screenWidth = out.widthPixels;
         //2.设置左侧菜单
         setBehindContentView(R.layout.leftmenu);
 
@@ -37,7 +42,8 @@ public class MainActivity extends SlidingFragmentActivity {
         slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
 
         //6.设置主页面占的宽度dip
-        slidingMenu.setBehindOffset(DensityUtil.dip2px(this,200));
+//        slidingMenu.setBehindOffset(DensityUtil.dip2px(this,200));
+        slidingMenu.setBehindOffset((int) (screenWidth*0.625));
 
         initFragment();
     }

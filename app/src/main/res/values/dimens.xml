@@ -4,4 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="item_photosmenu_detailpager_width">320dp</dimen>
+    <dimen name="textsize">23sp</dimen>
 </resources>
