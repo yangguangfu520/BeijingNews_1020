@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tabhost"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#FFFFFF"
+            android:layout_weight="1" >
+
+            
+
+            <LinearLayout
+                android:id="@+id/tabGet"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <LinearLayout
+			        android:layout_width="fill_parent"
+			        android:layout_height="60dip"
+			        android:layout_marginTop="5dp"
+			        android:orientation="horizontal" >
+			
+			        <Button
+			            android:id="@+id/searchNearByButton"
+			            android:layout_width="wrap_content"
+			            android:layout_height="fill_parent"
+			           
+			            android:onClick="searchNearby"
+			            android:layout_weight="2.5"
+			            android:textColor="#0000FF"
+			            android:text="检索周边" />
+			
+			        <Button
+			            android:id="@+id/clearResultButton"
+			            android:layout_width="wrap_content"
+			            android:layout_height="fill_parent"
+			          
+			            android:onClick="clearResult"
+			            android:layout_weight="2.5"
+			            android:textColor="#0000FF"
+			            android:text="清除结果" />
+			        <Button
+			            android:id="@+id/switchButton"
+			            android:layout_width="40dip"
+			            android:layout_height="40dip"
+			            android:layout_marginLeft="30dp"
+			            android:onClick="switchClick"
+			            android:layout_weight="1"
+			            android:textColor="#0000FF"
+			            android:text="地图" />
+			    </LinearLayout>
+
+                <baidumapsdk.demo.radar.CustomViewPager
+		        	android:id="@+id/viewpager"
+		        	android:layout_width="fill_parent"
+		        	android:layout_height="fill_parent"
+		        	/>
+			    
+                
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/tabUpload"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+				<LinearLayout
+				    	android:id="@+id/userid"
+				        android:layout_width="fill_parent"
+				        android:layout_height="40dip"
+				        android:layout_marginLeft="20dp"
+        				android:layout_marginRight="20dp"
+        				android:layout_marginTop="20dp"
+				        android:orientation="horizontal" >
+				
+				        <TextView
+				            android:layout_width="80dip"
+				            android:layout_height="40dip"
+				            android:background="#FFFFFF"
+				            android:textColor="#0000FF"
+				            android:text="用户ID：" >
+				        </TextView>
+				
+				        <EditText
+				            android:id="@+id/id"
+				            android:layout_width="fill_parent"
+				            android:layout_height="wrap_content"
+				            android:background="@drawable/bg_edittext" 
+				            android:textCursorDrawable="@drawable/edit_cursor"
+                            android:textColor="#000000"
+				            android:text="" />
+				 </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/userdes"
+			        android:layout_width="fill_parent"
+			        android:layout_height="40dip"
+			        android:layout_below="@+id/userid"
+			        android:layout_marginLeft="20dp"
+       				android:layout_marginRight="20dp"
+       				android:layout_marginTop="20dp"
+			        android:orientation="horizontal" >
+			
+			        <TextView
+			           android:layout_width="80dip"
+				        android:layout_height="40dip"
+			           
+			            android:textColor="#0000FF"
+			            android:text="备注信息：" >
+			        </TextView>
+			
+			        <EditText
+			            android:id="@+id/des"
+			            android:layout_width="fill_parent"
+			            android:layout_height="wrap_content"
+                        android:textColor="#000000"
+			            android:background="@drawable/bg_edittext" 
+			            android:textCursorDrawable="@drawable/edit_cursor"
+			            android:text="" />
+				 </LinearLayout>
+				 <Button
+				     android:id="@+id/uploadonece"
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="20dp"
+        			android:layout_marginRight="20dp"
+			        android:layout_below="@+id/userdes"
+			        android:layout_centerHorizontal="true"
+			        android:layout_marginTop="5dp"
+			        android:onClick="uploadOnceClick"
+			        android:textColor="#0000FF"
+			        android:text="获取当前位置并上传" />
+				 <TextView
+				     android:id="@+id/fengexian1"
+			            android:layout_width="fill_parent"
+			            android:layout_height="2dp"
+			            android:layout_marginLeft="20dp"
+        			android:layout_marginRight="20dp"
+			           android:layout_marginTop="10dp"
+			           android:layout_below="@+id/uploadonece"
+			            android:background="#0000FF">
+			        </TextView>
+				 <Button
+				    android:id="@+id/uploadcontinue"
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="20dp"
+        			android:layout_marginRight="20dp"
+			        android:layout_below="@+id/fengexian1"
+			        android:layout_centerHorizontal="true"
+			        android:layout_marginTop="20dp"
+			        android:onClick="uploadContinueClick"
+			        android:textColor="#0000FF"
+			        android:text="连续获取位置并上传" />
+				 <Button
+				    android:id="@+id/stopupload"
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="20dp"
+        			android:layout_marginRight="20dp"
+			        android:layout_below="@+id/uploadcontinue"
+			        android:layout_centerHorizontal="true"
+			        android:layout_marginTop="10dp"
+			        android:onClick="stopUploadClick"
+			        android:textColor="#0000FF"
+			        android:text="停止上传" />
+				 <TextView
+				     android:id="@+id/fengexian2"
+			            android:layout_width="fill_parent"
+			            android:layout_height="2dp"
+			            android:layout_marginLeft="20dp"
+        			android:layout_marginRight="20dp"
+			           android:layout_marginTop="10dp"
+			           android:layout_below="@+id/stopupload"
+			            android:background="#0000FF">
+			        </TextView>
+				 <Button
+				    android:id="@+id/clearInfoButton"
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="20dp"
+        			android:layout_marginRight="20dp"
+			        android:layout_below="@+id/fengexian2"
+			        android:layout_centerHorizontal="true"
+			        android:layout_marginTop="20dp"
+			        android:onClick="clearInfoClick"
+			        android:textColor="#0000FF"
+			        android:text="清除当前信息" />
+                
+            </RelativeLayout>
+            
+        </FrameLayout>
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:background="#FAFAFA"
+            
+             >
+        </TabWidget>
+
+    </LinearLayout>
+
+</TabHost>

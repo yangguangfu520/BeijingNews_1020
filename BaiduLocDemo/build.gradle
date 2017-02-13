@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+//    signingConfigs {
+//        debug {
+//            storeFile file('/Users/clamp/Downloads/定位sdk/LocationDemo2/app/src/main/res/debug.keystore')
+//        }
+//    }
+    compileSdkVersion 23
+    buildToolsVersion "24.0.3"
+
+    defaultConfig {
+        applicationId "com.atguigu.baidulocal"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        signingConfig signingConfigs.debug
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.debug
+        }
+
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    compile files('libs/BaiduLBS_Android.jar')
+}

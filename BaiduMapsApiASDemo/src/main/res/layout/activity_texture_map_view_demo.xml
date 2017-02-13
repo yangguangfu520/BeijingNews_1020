@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TabHost
+    android:id="@+id/tabhost"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/texturehint"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:textSize="20sp"
+                android:text="@string/texturemap_hint" />
+
+            <com.baidu.mapapi.map.TextureMapView
+                android:id="@+id/mTexturemap"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+            </com.baidu.mapapi.map.TextureMapView>
+
+            <ScrollView
+                android:id="@+id/textdesc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/texturemap_hint"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
+
+                <com.baidu.mapapi.map.TextureMapView
+                    android:id="@+id/mTexturemap2"
+                    android:layout_width="match_parent"
+                    android:layout_height="600dp" >
+                </com.baidu.mapapi.map.TextureMapView>
+
+
+                </LinearLayout>
+            </ScrollView>
+        </FrameLayout>
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            >
+        </TabWidget>
+    </LinearLayout>
+</TabHost>

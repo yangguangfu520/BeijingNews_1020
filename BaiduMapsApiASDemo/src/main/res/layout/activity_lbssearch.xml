@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" android:weightSum="1">
+
+        <Button
+                android:id="@+id/cloudRgc"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:text="rgc" android:width="10dp" android:layout_weight="0.28"/>
+        <Button
+                android:id="@+id/regionSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="本地"/>
+
+        <Button
+            android:id="@+id/nearbySearch"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:text="周边" />
+
+        <Button
+                android:id="@+id/boundsSearch"
+                android:layout_width="43dp"
+                android:layout_height="wrap_content"
+                android:text="矩形" android:layout_weight="0.36"/>
+
+        <Button
+            android:id="@+id/detailsSearch"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:text="详情" />
+
+    </LinearLayout>
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/bmapView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clickable="true" />
+
+</LinearLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    
+    
+	<LinearLayout
+	    android:id="@+id/radarpage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="false"
+            android:layout_marginBottom="10dip" >
+
+            <Button
+                android:id="@+id/radarlistpre"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="2dip"
+                android:layout_marginRight="2dip"
+                android:layout_weight="0.5"
+                android:background="@drawable/pre_"
+                android:onClick="preClick" />
+            <TextView
+	            android:id="@+id/radarListPage"
+		        android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="2dip"
+                android:layout_marginRight="2dip"
+                android:layout_weight="0.5" 
+            
+            	android:textColor="#0000FF"
+	            android:text="0/0"  >
+        	</TextView>
+
+            <Button
+                android:id="@+id/radarlistnext"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="2dip"
+                android:layout_marginRight="2dip"
+                android:layout_weight="0.5"
+                android:background="@drawable/next_"
+                android:onClick="nextClick" />
+        </LinearLayout>
+        <ListView
+	        android:id="@+id/radar_list"
+	        android:layout_width="fill_parent"
+	        android:divider="#0000FF" 
+			android:dividerHeight="1px"  
+			android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+			android:background="#FFFFFF"
+			android:cacheColorHint="#FFFFFF"
+			android:layout_above="@+id/radarpage"
+	        android:layout_height="fill_parent" />
+        
+</RelativeLayout>

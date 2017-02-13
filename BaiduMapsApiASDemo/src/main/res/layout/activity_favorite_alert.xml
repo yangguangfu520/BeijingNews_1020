@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				      android:layout_width="300dip"
+				      android:layout_height="wrap_content"
+				      android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dip"
+                        android:layout_weight="1.0"
+                        android:layout_marginLeft="10dp"
+                        android:onClick="modifyClick"
+                        android:text="修改名称："
+                        android:textAlignment="center" />
+
+                    <EditText
+                         android:id="@+id/modifyedittext"
+                        android:layout_width="50dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4.0"
+                        android:layout_marginRight="20dp"
+                        android:ems="10" >
+
+                        <requestFocus />
+                    </EditText>
+				
+			
+                
+      
+
+</LinearLayout>
+
+    

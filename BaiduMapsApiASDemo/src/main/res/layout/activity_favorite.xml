@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+	<TextView
+        android:id="@+id/state"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:textAlignment="center"
+        android:text="长按地图获取经纬度坐标" />
+	<LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <RelativeLayout
+		     android:id="@+id/edit"
+		     android:layout_width="wrap_content"
+		     android:layout_height="wrap_content"
+		     android:layout_marginBottom="10dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="10dip"
+            android:layout_weight="1.0"
+		     android:orientation="vertical" >
+		     <LinearLayout
+		        android:id="@+id/editpt"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal" >
+		
+		        <TextView
+		            android:id="@+id/textpt"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="经纬度：" />
+		
+		        <EditText
+		            android:id="@+id/pt"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:ems="10"
+		            android:text="" >
+		
+		            <requestFocus />
+		        </EditText>
+		    </LinearLayout>
+		
+		    <LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_below="@+id/editpt"
+		        android:orientation="horizontal" >
+		
+		        <TextView
+		            android:id="@+id/textname"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="名称：" />
+		
+		        <EditText
+		            android:id="@+id/name"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:ems="10"
+		            android:text="" >
+		
+		            <requestFocus />
+		        </EditText>
+		    </LinearLayout>
+	     </RelativeLayout>
+	     <Button
+	            android:id="@+id/save"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:layout_marginBottom="10dip"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:layout_marginTop="10dip"
+	            android:onClick="saveClick"
+	            android:layout_weight="3.0"
+	            android:text="保存" />
+    </LinearLayout>
+	
+     
+	<LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/searchall"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="10dip"
+            android:layout_weight="1.0"
+            android:onClick="getAllClick"
+            android:text="查看全部" />
+
+        <Button
+            android:id="@+id/deleteall"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="10dip"
+            android:layout_weight="1.0"
+            android:onClick="deleteAllClick"
+            android:text="删除全部" />
+
+    </LinearLayout>
+    
+
+    
+     <com.baidu.mapapi.map.MapView
+         android:id="@+id/bmapView"
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         android:clickable="true" />
+
+        
+
+</LinearLayout>
